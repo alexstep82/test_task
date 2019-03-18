@@ -26,7 +26,7 @@ public class DetailsOrder implements Serializable {
     }
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "number")
+    @JoinColumn
     public Product getNumber_product() {
         return number_product;
     }
@@ -46,7 +46,7 @@ public class DetailsOrder implements Serializable {
     }
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id")
+    @JoinColumn
     public Order getId_order() {
         return id_order;
     }

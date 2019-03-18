@@ -1,38 +1,28 @@
 package orm.DAO;
 
 import org.junit.Test;
-import orm.entity.Order;
+import orm.entity.Product;
 
 import java.time.Clock;
-import java.time.Instant;
 import java.time.LocalDate;
-import java.time.ZoneId;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class ProductDAOTest {
 
-    private OrderDAO orderDAO = new OrderDAO();
+    private String number = "B0001";
+    private String description = "Table for working";
+    private String name = "Table";
+    private LocalDate date = LocalDate.now();
+    private ProductDAO productDAO = new ProductDAO();
     @Test
     public void add() {
-        String nameCustomer = "Bashmakov";
-        String addressCustomer = "Lenina 19";
-        Integer sumPrice = 10;
-        LocalDate date = LocalDate.now(Clock.systemUTC());
-        Order order = new Order();
-        order.setNameCustomer(nameCustomer);
-        order.setAddressCustomer(addressCustomer);
-        order.setSumPrice(sumPrice);
-        order.setDate(date);
-        int id = orderDAO.add(order);
-        assertEquals(nameCustomer, orderDAO.getById(id).getNameCustomer());
-        assertEquals(addressCustomer, orderDAO.getById(id).getAddressCustomer());
-        assertEquals(sumPrice, orderDAO.getById(id).getSumPrice());
-        assertEquals(date, orderDAO.getById(id).getDate());
-
-    }
-
-    @Test
-    public void getById() {
+        Product product = new Product();
+        product.setName(name);
+        product.setDescription(description);
+        product.setNumber(number);
+        product.setProductionDate(date);
+        String n = productDAO.add(product);
+        assertEquals(number, productDAO.getById(number).getNumber());
     }
 }

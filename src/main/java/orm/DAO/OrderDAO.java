@@ -4,9 +4,11 @@ import org.hibernate.Session;
 import orm.HibernateSessionFactory;
 import orm.entity.Order;
 
-public class OrderDAO implements EntityOperations<Order> {
+import java.sql.SQLException;
+
+public class OrderDAO implements EntityOperations<Integer,Order> {
     @Override
-    public int add(Order order) {
+    public Integer add(Order order)  {
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
         session.beginTransaction();
         Integer id = (Integer) session.save(order);
@@ -16,7 +18,7 @@ public class OrderDAO implements EntityOperations<Order> {
     }
 
     @Override
-    public Order getById(Integer id) {
+    public Order getById(Integer id)  {
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
         Order order = session.get(Order.class, id);
         session.close();

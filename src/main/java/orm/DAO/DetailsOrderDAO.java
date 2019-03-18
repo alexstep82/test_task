@@ -4,11 +4,9 @@ import org.hibernate.Session;
 import orm.HibernateSessionFactory;
 import orm.entity.DetailsOrder;
 
-import javax.persistence.criteria.CriteriaBuilder;
-
-public class DetailsOrderDAO implements EntityOperations<DetailsOrder> {
+public class DetailsOrderDAO implements EntityOperations<Integer,DetailsOrder> {
     @Override
-    public int add(DetailsOrder detailsOrder) {
+    public Integer add(DetailsOrder detailsOrder) {
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
         session.beginTransaction();
         Integer id = (Integer) session.save(detailsOrder);
