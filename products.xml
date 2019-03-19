@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<products>
+    <product>
+        <number>A0003</number>
+        <name>Chair</name>
+        <description>Chair for office</description>
+        <productionDate>2019-03-19T22:03:17.374+03:00</productionDate>
+    </product>
+    <product>
+        <number>D0001</number>
+        <name>Wardrobe</name>
+        <description>Wardrope for employees</description>
+        <productionDate>2019-03-15T00:03:17.374+03:00</productionDate>
+    </product>
+</products>

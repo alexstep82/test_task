@@ -10,7 +10,7 @@ import static org.junit.Assert.assertEquals;
 
 public class ProductDAOTest {
 
-    private String number = "B0001";
+    private String number = "B0008";
     private String description = "Table for working";
     private String name = "Table";
     private LocalDate date = LocalDate.now();
@@ -23,6 +23,8 @@ public class ProductDAOTest {
         product.setNumber(number);
         product.setProductionDate(date);
         String n = productDAO.add(product);
+        System.out.println(n);
         assertEquals(number, productDAO.getById(number).getNumber());
+        System.out.println(productDAO.getById("23456"));
     }
 }
