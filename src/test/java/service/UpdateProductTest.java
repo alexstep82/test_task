@@ -13,7 +13,7 @@ public class UpdateProductTest {
     @Test
     public void updateProduct() throws JAXBException {
         UpdateProduct updateProduct = new UpdateProduct(productDAO);
-        updateProduct.updateProduct("/home/alexbash/IdeaProjects/testtask/products.xml");
+        updateProduct.updateProduct("web/products.xml");
 //        assertEquals("C0003", productDAO.getById("C0003").getNumber());
     }
 }

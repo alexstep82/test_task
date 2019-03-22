@@ -5,6 +5,7 @@ import orm.HibernateSessionFactory;
 import orm.entity.Order;
 
 import java.sql.SQLException;
+import java.util.Collection;
 
 public class OrderDAO implements EntityOperations<Integer,Order> {
     @Override
@@ -23,5 +24,10 @@ public class OrderDAO implements EntityOperations<Integer,Order> {
         Order order = session.get(Order.class, id);
         session.close();
         return order;
+    }
+
+    @Override
+    public Collection<Order> getAll() {
+        return null;
     }
 }

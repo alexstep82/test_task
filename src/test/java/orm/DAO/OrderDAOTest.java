@@ -13,9 +13,9 @@ import static org.junit.Assert.*;
 
 public class OrderDAOTest {
 
-    String nameCustomer = "Bashmakov";
-    String addressCustomer = "Lenina 19";
-    Integer sumPrice = 10;
+    String nameCustomer = "Ivanov";
+    String addressCustomer = "Mira 19";
+    Integer sumPrice = 25;
     LocalDate date = LocalDate.now(Clock.systemUTC());
     private OrderDAO orderDAO = new OrderDAO();
     @Test

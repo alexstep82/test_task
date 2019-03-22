@@ -1,17 +1,14 @@
-import service.Product;
-import service.Products;
+import webservice.TimeService;
+import webservice.TimeServiceService;
 
-import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
-import java.io.File;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Date;
+import javax.xml.datatype.XMLGregorianCalendar;
 
 public class Main {
 
     public static void main(String[] args) throws JAXBException {
-
+        TimeService service = new TimeServiceService().getTimeServicePort();
+        XMLGregorianCalendar date = service.getDate();
+        System.out.println(date);
     }
 }

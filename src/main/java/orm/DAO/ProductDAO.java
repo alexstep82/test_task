@@ -1,10 +1,13 @@
 package orm.DAO;
 
 import org.hibernate.Session;
+import org.hibernate.query.Query;
 import orm.HibernateSessionFactory;
 import orm.entity.Product;
 
 import java.sql.SQLException;
+import java.util.Collection;
+import java.util.List;
 
 public class ProductDAO implements EntityOperations<String, Product> {
     @Override
@@ -23,5 +26,13 @@ public class ProductDAO implements EntityOperations<String, Product> {
         Product product = session.get(Product.class, id);
         session.close();
         return product;
+    }
+
+    public Collection<Product> getAll(){
+        Session session = HibernateSessionFactory.getSessionFactory().openSession();
+        Query query = session.createQuery("from Product ");
+        List result = query.getResultList();
+        session.close();
+        return result;
     }
 }
