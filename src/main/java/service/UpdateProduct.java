@@ -18,7 +18,7 @@ public class UpdateProduct {
         this.productDAO = productDAO;
     }
 
-    public Products unMarshaling (String path) throws JAXBException {
+    private Products unMarshaling (String path) throws JAXBException {
         JAXBContext jaxbContext = JAXBContext.newInstance(Products.class);
         Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
         return (Products) unmarshaller.unmarshal(new File(path));

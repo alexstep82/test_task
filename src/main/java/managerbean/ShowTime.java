@@ -6,10 +6,11 @@ import webservice.TimeServiceService;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.view.ViewScoped;
+import javax.inject.Named;
 import javax.xml.datatype.XMLGregorianCalendar;
 import java.io.Serializable;
 
-@ManagedBean (name = "showTime")
+@Named
 @ViewScoped
 public class ShowTime implements Serializable {
 

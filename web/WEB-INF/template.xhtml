@@ -15,7 +15,7 @@
         <div id="top" class="text-md-center" >
             <ui:insert name="top" >
                 <h:form>
-                    <h1 ><h:commandLink value="Test Project for EGAR Technology" action="/index"/></h1>
+                    <h1><h:commandLink value="Test Project for EGAR Technology" onclick="#{productList.update()}" action="/index"/></h1>
                 </h:form>
             </ui:insert>
         </div>
@@ -31,7 +31,7 @@
 
         <div>
             <div id="content" >
-                <ui:insert name="content">Content</ui:insert>
+                <ui:insert name="content" >Content</ui:insert>
             </div>
         </div>
     </h:body>

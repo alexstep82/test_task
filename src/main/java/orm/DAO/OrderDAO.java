@@ -1,11 +1,13 @@
 package orm.DAO;
 
 import org.hibernate.Session;
+import org.hibernate.query.Query;
 import orm.HibernateSessionFactory;
 import orm.entity.Order;
 
 import java.sql.SQLException;
 import java.util.Collection;
+import java.util.List;
 
 public class OrderDAO implements EntityOperations<Integer,Order> {
     @Override
@@ -28,6 +30,10 @@ public class OrderDAO implements EntityOperations<Integer,Order> {
 
     @Override
     public Collection<Order> getAll() {
-        return null;
+        Session session = HibernateSessionFactory.getSessionFactory().openSession();
+        Query query = session.createQuery("from Order ");
+        List result = query.getResultList();
+        session.close();
+        return result;
     }
 }

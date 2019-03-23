@@ -6,11 +6,73 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui" xmlns:P="http://java.sun.com/jsf/html">
-   <body>
-      <ui:composition template="./WEB-INF/template.xhtml">
-         <ui:define name="content">
+<body>
+<ui:composition template="./WEB-INF/template.xhtml">
+    <ui:define name="content">
+        <div class="ui-g ">
+            <div class="ui-g-12 ui-md-6">
+                <h:form id="form">
+                    <p:repeat value="#{ordersView.orders}" var="order">
+                        <h:panelGrid columns="2">
+                            <p:outputPanel styleClass="border" style="text-align: center">
+                                <h:outputLabel value="Order number #{order.id}" styleClass="alert-info"/>
+                                <h:panelGrid columns="9" cellpadding="5">
 
-         </ui:define>
-      </ui:composition>
-   </body>
+                                    <h:outputText value="Name customer:"/>
+                                    <h:outputText value="#{order.nameCustomer}" style="font-weight: bold"/>
+                                    <h:outputText value="Address:"/>
+                                    <h:outputText value="#{order.addressCustomer}" style="font-weight: bold"/>
+                                    <h:outputText value="Price:"/>
+                                    <h:outputText value="#{order.sumPrice}" style="font-weight: bold"/>
+                                    <h:outputText value="Date:"/>
+                                    <h:outputText value="#{order.date}" style="font-weight: bold"/>
+                                </h:panelGrid>
+                                <p:outputPanel>
+
+                                    <p:dataList value="#{detail.showDetail(order)}" var="d">
+                                        <f:facet name="header">
+                                            Detail
+                                        </f:facet>
+                                        #{d.number_product.name}, #{d.count}
+                                    </p:dataList>
+
+                                </p:outputPanel>
+                            </p:outputPanel>
+
+
+                        </h:panelGrid>
+                    </p:repeat>
+                </h:form>
+
+            </div>
+            <div class="ui-g-12 ui-md-6">
+                <h:form id="detail">
+                    <!--<p:outputPanel>-->
+                        <!--<h:panelGrid columns="2" cellpadding="5">-->
+                            <!--<p:dataList value="#{productList.listProduct}" var="p">-->
+                                <!--Number:  #{p.number}-->
+                            <!--</p:dataList>-->
+                        <!--</h:panelGrid>-->
+                    <!--</p:outputPanel>-->
+                    <p:dataTable value="#{productList.listProduct}" var="p">
+                        <p:column headerText="Серийный номер товара">
+                            <h:outputText value="#{p.number}" />
+                        </p:column>
+                        <p:column headerText="Название товара">
+                            <h:outputText value="#{p.name}" />
+                        </p:column>
+                        <p:column headerText="Описание">
+                            <h:outputText value="#{p.description}" />
+                        </p:column>
+                        <p:column headerText="Дата серийного производства">
+                            <h:outputText value="#{p.productionDate}" />
+                        </p:column>
+                    </p:dataTable>
+                </h:form>
+            </div>
+
+        </div>
+    </ui:define>
+</ui:composition>
+</body>
 </html>

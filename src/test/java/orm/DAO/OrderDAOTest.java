@@ -8,6 +8,7 @@ import java.time.Clock;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -31,5 +32,14 @@ public class OrderDAOTest {
         assertEquals(sumPrice, orderDAO.getById(id).getSumPrice());
         assertEquals(date, orderDAO.getById(id).getDate());
 
+    }
+
+    @Test
+    public void getAll(){
+        List orders = (List) orderDAO.getAll();
+        for (Object o:orders) {
+            Order order = (Order) o;
+            System.out.println(order.getNameCustomer());
+        }
     }
 }
